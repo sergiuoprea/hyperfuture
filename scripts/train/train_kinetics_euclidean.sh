@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 PYTORCH_JIT=0 NCCL_LL_THRESHOLD=0 python \
+PYTORCH_JIT=0 NCCL_LL_THRESHOLD=0 python \
   -W ignore \
   -i \
   -m torch.distributed.launch \
@@ -16,9 +16,10 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 PYTORCH_JIT=0 NCCL_LL_THRESHOLD=0 python \
   --img_dim 128 \
   --epochs 200 \
   --fp16 \
-  --num_workers 15 \
+  --num_workers 1 \
   --cross_gpu_score \
   --lr 0.001 \
   --prefix train_kinetics_euclidean \
-  --path_dataset /path/to/datasets/Kinetics600 \
-  --path_data_info /path/to/data/info
+  --path_dataset /src/datasets/kinetics/kinetics-downloader/dataset_frames \
+  --path_data_info /src/repos/hyperfuture/dataset_info \
+  --local_rank -1

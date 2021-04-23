@@ -21,7 +21,7 @@ CUDA_VISIBLE_DEVICES=0 PYTORCH_JIT=0 NCCL_LL_THRESHOLD=0 python \
   --prefix test_future_subaction_linear_finegym_hyperbolic \
   --fp16 \
   --fp64_hyper \
-  --pretrain /path/to/checkpoint.pth.tar \
+  --pretrain /src/datasets/hyperfuture/weights/checkpoints/train_finegym_hyperbolic/checkpoint.pth.tar \
   --linear_input predictions_z_hat \
   --n_classes 307 \
   --hierarchical_labels \
@@ -32,5 +32,5 @@ CUDA_VISIBLE_DEVICES=0 PYTORCH_JIT=0 NCCL_LL_THRESHOLD=0 python \
   --test \
   --num_workers 8 \
   --seed 0 \
-  --path_dataset /path/to/datasets/FineGym \
-  --path_data_info /path/to/data/info
+  --path_dataset /src/datasets/kinetics/kinetics-downloader/dataset/test \
+  --path_data_info /src/repos/hyperfuture/dataset_info
